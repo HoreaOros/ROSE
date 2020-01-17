@@ -28,14 +28,36 @@ namespace Secvente
 
         // 3. Se dă un vector cu n elemente, 
         // numere naturale și două numere t și k. 
-        //Să se determine câte secvențe din șir 
+        // Să se determine câte secvențe din șir 
         // au lungimea k și sunt formate din valori 
         // mai mici sau egale cu t.
-
-
+        // 1 ≤ k ≤ n ≤ 100.000
+        // Exemplu:
+        // 8 (numarul de numere) 
+        // 5 ()
+        // 3 (lungimea subsecventei)
+        // 1 4 3 5 7 3 4 2
+        // (1 4 3) (4 3 5) (3 4 2)
+        // (n - k + 1) * k
         static void Main(string[] args)
         {
-            int[] v = { 12, 10, 14, 6, 4,  10,  14 };
+            
+            int[] v = { 12, 10, 14, 6, 4,  10,  14, 7 };
+            int n = v.Length;
+            int k = 3;
+            int t = 10;
+            int nr = 0;
+            for (int i = 0; i < n - k + 1; i++)
+            {
+                bool ok = true;
+                for (int j = 0; j < k; j++)
+                    if (v[j + i] > t)
+                    {
+                        ok = false;
+                        break;
+                    }
+                if (ok)nr++;
+            }
 
 
 
